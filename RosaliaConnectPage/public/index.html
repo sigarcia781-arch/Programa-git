@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LMS - Sistema de Gestión de Aprendizaje</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">LMS Educativo</h1>
+            <div class="nav-links" id="navLinks">
+                <a href="#" id="homeLink">Inicio</a>
+                <a href="#" id="coursesLink">Cursos</a>
+                <a href="#" id="myCoursesLink" style="display: none;">Mis Cursos</a>
+                <a href="#" id="profileLink" style="display: none;">Perfil</a>
+                <a href="#" id="loginLink">Iniciar Sesión</a>
+                <a href="#" id="registerLink">Registrarse</a>
+                <a href="#" id="logoutLink" style="display: none;">Cerrar Sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Vista de Inicio -->
+        <section id="homeView" class="view">
+            <div class="hero">
+                <h2>Bienvenido al Sistema de Gestión de Aprendizaje</h2>
+                <p>Plataforma educativa para estudiantes e instructores</p>
+            </div>
+        </section>
+
+        <!-- Vista de Login -->
+        <section id="loginView" class="login-view" style="display: none;">
+            <div class="login-background">
+                <!-- Elementos decorativos -->
+                <div class="decorative-elements">
+                    <div class="paper-plane">✈</div>
+                    <div class="leaf leaf-1">🍃</div>
+                    <div class="leaf leaf-2">🍃</div>
+                    <div class="leaf leaf-3">🍃</div>
+                    <div class="dotted-circle"></div>
+                </div>
+                
+                <div class="login-container">
+                    <!-- Imagen de perfil -->
+                    <div class="profile-image-container">
+                        <div class="profile-image">
+                            <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="60" cy="60" r="60" fill="#FFD700"/>
+                                <circle cx="60" cy="45" r="20" fill="#FFB6C1"/>
+                                <path d="M30 95 Q30 75 60 75 Q90 75 90 95" fill="#FFB6C1"/>
+                                <circle cx="50" cy="40" r="3" fill="#FF69B4"/>
+                                <circle cx="70" cy="40" r="3" fill="#FF69B4"/>
+                                <path d="M50 50 Q60 55 70 50" stroke="#FF69B4" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <h2 class="login-title">Inicia Sesión</h2>
+                    
+                    <form id="loginForm" class="login-form">
+                        <div class="input-group">
+                            <span class="input-icon">👤</span>
+                            <input type="email" id="loginEmail" placeholder="Usuario" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="loginPassword" placeholder="Contraseña" required>
+                            <span class="toggle-password" id="togglePassword">👁</span>
+                        </div>
+                        
+                        <div class="login-options">
+                            <label class="remember-me">
+                                <input type="checkbox" id="rememberMe">
+                                <span>Recordar contraseña</span>
+                            </label>
+                            <a href="#" class="forgot-password">¿Olvidó su contraseña?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn-login">Ingresar</button>
+                    </form>
+                    
+                    <p class="register-link">¿Aún no está registrado? <a href="#" id="switchToRegister">Registrese aquí</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vista de Registro -->
+        <section id="registerView" class="view" style="display: none;">
+            <div class="auth-container">
+                <h2>Registrarse</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerNombre">Nombre:</label>
+                        <input type="text" id="registerNombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerApellido">Apellido:</label>
+                        <input type="text" id="registerApellido" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Contraseña:</label>
+                        <input type="password" id="registerPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerRol">Rol:</label>
+                        <select id="registerRol">
+                            <option value="estudiante">Estudiante</option>
+                            <option value="instructor">Instructor</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Registrarse</button>
+                </form>
+                <p class="auth-switch">¿Ya tienes cuenta? <a href="#" id="switchToLogin">Inicia sesión aquí</a></p>
+            </div>
+        </section>
+
+        <!-- Vista de Cursos -->
+        <section id="coursesView" class="view" style="display: none;">
+            <h2>Cursos Disponibles</h2>
+            <div id="coursesList" class="courses-grid"></div>
+        </section>
+
+        <!-- Vista de Mis Cursos -->
+        <section id="myCoursesView" class="view" style="display: none;">
+            <h2>Mis Cursos</h2>
+            <div id="myCoursesList" class="courses-grid"></div>
+        </section>
+
+        <!-- Vista de Detalle de Curso -->
+        <section id="courseDetailView" class="view" style="display: none;">
+            <div id="courseDetailContent"></div>
+        </section>
+
+        <!-- Vista de Perfil -->
+        <section id="profileView" class="view" style="display: none;">
+            <h2>Mi Perfil</h2>
+            <div id="profileContent" class="profile-container"></div>
+        </section>
+    </main>
+
+    <div id="message" class="message"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/courses.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
+
